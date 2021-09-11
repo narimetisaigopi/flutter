@@ -7,9 +7,12 @@ import 'package:flutter/widgets.dart';
 void main() {
   // Generic reference variables.
   BuildContext context;
+<<<<<<< HEAD
   RenderObjectWidget renderObjectWidget;
   RenderObject renderObject;
   Object object;
+=======
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
 
   // Changes made in https://github.com/flutter/flutter/pull/44189
   const Element element = Element(myWidget);
@@ -94,6 +97,7 @@ void main() {
   AnimatedList.of(context, nullOk: false);
   SliverAnimatedList.of(context, nullOk: true);
   SliverAnimatedList.of(context, nullOk: false);
+<<<<<<< HEAD
 
   // Changes made in https://github.com/flutter/flutter/pull/59127
   const BottomNavigationBarItem bottomNavigationBarItem = BottomNavigationBarItem(title: myTitle);
@@ -149,4 +153,6 @@ void main() {
   listWheelViewport = ListWheelViewport(clipToSize: true);
   listWheelViewport = ListWheelViewport(clipToSize: false);
   listWheelViewport.clipToSize;
+=======
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
 }

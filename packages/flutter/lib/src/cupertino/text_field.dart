@@ -4,7 +4,7 @@
 
 import 'dart:ui' as ui show BoxHeightStyle, BoxWidthStyle;
 
-import 'package:flutter/foundation.dart' show defaultTargetPlatform;
+import 'package:flutter/foundation.dart' show defaultTargetPlatform, kIsWeb;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
@@ -1236,7 +1236,11 @@ class _CupertinoTextFieldState extends State<CupertinoTextField> with Restoratio
       ),
     );
 
+<<<<<<< HEAD
     return Semantics(
+=======
+    final Widget child = Semantics(
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
       enabled: enabled,
       onTap: !enabled || widget.readOnly ? null : () {
         if (!controller.selection.isValid) {
@@ -1244,12 +1248,18 @@ class _CupertinoTextFieldState extends State<CupertinoTextField> with Restoratio
         }
         _requestKeyboard();
       },
+<<<<<<< HEAD
       onDidGainAccessibilityFocus: handleDidGainAccessibilityFocus,
+=======
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
       child: IgnorePointer(
         ignoring: !enabled,
         child: Container(
           decoration: effectiveDecoration,
+<<<<<<< HEAD
           color: !enabled && effectiveDecoration == null ? disabledColor : null,
+=======
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
           child: _selectionGestureDetectorBuilder.buildGestureDetector(
             behavior: HitTestBehavior.translucent,
             child: Align(
@@ -1262,5 +1272,13 @@ class _CupertinoTextFieldState extends State<CupertinoTextField> with Restoratio
         ),
       ),
     );
+
+    if (kIsWeb) {
+      return Shortcuts(
+        shortcuts: scrollShortcutOverrides,
+        child: child,
+      );
+    }
+    return child;
   }
 }

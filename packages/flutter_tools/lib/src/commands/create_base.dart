@@ -387,7 +387,10 @@ abstract class CreateBase extends FlutterCommand {
       'winuwp': windowsUwp,
       'year': DateTime.now().year,
       'dartSdkVersionBounds': dartSdkVersionBounds,
+<<<<<<< HEAD
       'implementationTests': implementationTests,
+=======
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
     };
   }
 

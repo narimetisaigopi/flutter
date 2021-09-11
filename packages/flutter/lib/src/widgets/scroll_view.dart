@@ -208,6 +208,7 @@ abstract class ScrollView extends StatelessWidget {
   /// inefficient to speculatively create this object each frame to see if the
   /// physics should be updated.)
   /// {@endtemplate}
+<<<<<<< HEAD
   ///
   /// If an explicit [ScrollBehavior] is provided to [scrollBehavior], the
   /// [ScrollPhysics] provided by that behavior will take precedence after
@@ -222,6 +223,10 @@ abstract class ScrollView extends StatelessWidget {
   /// [ScrollBehavior].
   final ScrollBehavior? scrollBehavior;
 
+=======
+  final ScrollPhysics? physics;
+
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
   /// {@template flutter.widgets.scroll_view.shrinkWrap}
   /// Whether the extent of the scroll view in the [scrollDirection] should be
   /// determined by the contents being viewed.

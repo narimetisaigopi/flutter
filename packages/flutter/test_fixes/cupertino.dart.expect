@@ -7,9 +7,12 @@ import 'package:flutter/cupertino.dart';
 void main() {
   // Generic reference variables.
   BuildContext context;
+<<<<<<< HEAD
   RenderObjectWidget renderObjectWidget;
   RenderObject renderObject;
   Object object;
+=======
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
 
   // Change made in https://github.com/flutter/flutter/pull/41859
   const CupertinoTextThemeData themeData = CupertinoTextThemeData();
@@ -118,6 +121,7 @@ void main() {
   NoDefaultCupertinoThemeData.resolveFrom(context);
   CupertinoTextThemeData.resolveFrom(context);
   CupertinoTextThemeData.resolveFrom(context);
+<<<<<<< HEAD
 
   // Changes made in https://github.com/flutter/flutter/pull/72043
   CupertinoTextField(maxLengthEnforcement: MaxLengthEnforcement.enforce);
@@ -181,4 +185,6 @@ void main() {
   listWheelViewport = ListWheelViewport(clipBehavior: Clip.hardEdge);
   listWheelViewport = ListWheelViewport(clipBehavior: Clip.none);
   listWheelViewport.clipBehavior;
+=======
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
 }

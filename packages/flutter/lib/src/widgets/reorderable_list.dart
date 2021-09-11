@@ -197,6 +197,7 @@ class ReorderableList extends StatefulWidget {
 
   /// {@macro flutter.widgets.scroll_view.shrinkWrap}
   final bool shrinkWrap;
+<<<<<<< HEAD
 
   /// {@macro flutter.widgets.scroll_view.anchor}
   final double anchor;
@@ -225,6 +226,30 @@ class ReorderableList extends StatefulWidget {
 
   /// {@macro flutter.widgets.list_view.prototypeItem}
   final Widget? prototypeItem;
+=======
+
+  /// {@macro flutter.widgets.scroll_view.anchor}
+  final double anchor;
+
+  /// {@macro flutter.rendering.RenderViewportBase.cacheExtent}
+  final double? cacheExtent;
+
+  /// {@macro flutter.widgets.scrollable.dragStartBehavior}
+  final DragStartBehavior dragStartBehavior;
+
+  /// {@macro flutter.widgets.scroll_view.keyboardDismissBehavior}
+  ///
+  /// The default is [ScrollViewKeyboardDismissBehavior.manual]
+  final ScrollViewKeyboardDismissBehavior keyboardDismissBehavior;
+
+  /// {@macro flutter.widgets.scrollable.restorationId}
+  final String? restorationId;
+
+  /// {@macro flutter.material.Material.clipBehavior}
+  ///
+  /// Defaults to [Clip.hardEdge].
+  final Clip clipBehavior;
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
 
   /// The state from the closest instance of this class that encloses the given
   /// context.

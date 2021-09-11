@@ -33,7 +33,11 @@ TaskFunction createHotModeTest({String? deviceIdOverride, Map<String, String>? e
     final File benchmarkFile = file(path.join(_editedFlutterGalleryDir.path, 'hot_benchmark.json'));
     rm(benchmarkFile);
     final List<String> options = <String>[
+<<<<<<< HEAD
       '--hot', '-d', deviceIdOverride!, '--benchmark', '--resident',  '--no-android-gradle-daemon', '--no-publish-port', '--verbose',
+=======
+      '--hot', '-d', deviceIdOverride, '--benchmark', '--resident',  '--no-android-gradle-daemon', '--no-publish-port', '--verbose',
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
     ];
     int hotReloadCount = 0;
     late Map<String, dynamic> smallReloadData;

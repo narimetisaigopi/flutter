@@ -244,10 +244,15 @@ class CreateCommand extends CreateBase {
       linux: featureFlags.isLinuxEnabled && platforms.contains('linux'),
       macos: featureFlags.isMacOSEnabled && platforms.contains('macos'),
       windows: featureFlags.isWindowsEnabled && platforms.contains('windows'),
+<<<<<<< HEAD
       windowsUwp: featureFlags.isWindowsUwpEnabled && platforms.contains('winuwp'),
       // Enable null safety everywhere.
       dartSdkVersionBounds: '">=2.12.0 <3.0.0"',
       implementationTests: boolArg('implementation-tests'),
+=======
+      // Enable null-safety for sample code, which is - unlike our regular templates - already migrated.
+      dartSdkVersionBounds: sampleCode != null ? '">=2.12.0-0 <3.0.0"' : '">=2.7.0 <3.0.0"'
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
     );
 
     final String relativeDirPath = globals.fs.path.relative(projectDirPath);

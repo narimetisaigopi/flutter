@@ -97,7 +97,11 @@ void main() {
     const ProcessManager processManager = LocalProcessManager();
 
     Future<ProcessResult> runScript(
+<<<<<<< HEAD
         [Map<String, String>? environment, List<String> otherArgs = const <String>[]]) async {
+=======
+        [Map<String, String> environment, List<String> otherArgs = const <String>[]]) async {
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
       final String dart = path.absolute(
           path.join('..', '..', 'bin', 'cache', 'dart-sdk', 'bin', 'dart'));
       final ProcessResult scriptProcess = processManager.runSync(<String>[
@@ -112,14 +116,22 @@ void main() {
       ProcessResult result = await runScript(
         <String, String>{'SHARD': 'smoke_tests', 'SUBSHARD': '1_3'},
       );
+<<<<<<< HEAD
       expectExitCode(result, 0);
+=======
+      expect(result.exitCode, 0);
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
       // There are currently 6 smoke tests. This shard should contain test 1 and 2.
       expect(result.stdout, contains('Selecting subshard 1 of 3 (range 1-2 of 6)'));
 
       result = await runScript(
         <String, String>{'SHARD': 'smoke_tests', 'SUBSHARD': '5_6'},
       );
+<<<<<<< HEAD
       expectExitCode(result, 0);
+=======
+      expect(result.exitCode, 0);
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
       // This shard should contain only test 5.
       expect(result.stdout, contains('Selecting subshard 5 of 6 (range 5-5 of 6)'));
     });
@@ -128,7 +140,11 @@ void main() {
       final ProcessResult result = await runScript(
         <String, String>{'SHARD': 'smoke_tests', 'SUBSHARD': '100_99'},
       );
+<<<<<<< HEAD
       expectExitCode(result, 1);
+=======
+      expect(result.exitCode, 1);
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
       expect(result.stdout, contains('Invalid subshard name'));
     });
   });

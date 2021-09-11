@@ -186,6 +186,7 @@ class DevtoolsServerLauncher extends DevtoolsLauncher {
         devtoolsVersion(_fileSystem),
       ]);
       if (_devToolsActivateProcess.exitCode != 0) {
+<<<<<<< HEAD
         _logger.printError(
           'Error running `pub global activate devtools`:\n'
           '${_devToolsActivateProcess.stderr}'
@@ -194,6 +195,14 @@ class DevtoolsServerLauncher extends DevtoolsLauncher {
       }
       _persistentToolState.lastDevToolsActivation = DateTime.now();
       return true; // Activation succeeded!
+=======
+        _logger.printError('Error running `pub global activate '
+            'devtools`:\n${_devToolsActivateProcess.stderr}');
+        return false;
+      }
+      _persistentToolState.lastDevToolsActivationTime = DateTime.now();
+      return true;
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
     } on Exception catch (e, _) {
       _logger.printError('Error running `pub global activate devtools`: $e');
       return false;

@@ -1491,7 +1491,81 @@ class DevToolsMemoryTest {
     });
   }
 
+<<<<<<< HEAD
   late Device _device;
+=======
+  Future<void> _launchApp() async {
+    print('launching $project$driverTest on device...');
+    final String flutterPath = path.join(flutterDirectory.path, 'bin', 'flutter');
+    _runProcess = await startProcess(
+      flutterPath,
+      <String>[
+        'run',
+        '--verbose',
+        '--profile',
+        '--no-publish-port',
+        '-d', _device.deviceId,
+        driverTest,
+      ],
+    );
+
+    // Listen for Observatory URI and forward stdout/stderr
+    final Completer<String> observatoryUri = Completer<String>();
+    _runProcess.stdout
+        .transform<String>(utf8.decoder)
+        .transform<String>(const LineSplitter())
+        .listen((String line) {
+          print('run stdout: $line');
+          final RegExpMatch match = RegExp(r'An Observatory debugger and profiler on .+ is available at: ((http|//)[a-zA-Z0-9:/=_\-\.\[\]]+)').firstMatch(line);
+          if (match != null && !observatoryUri.isCompleted) {
+            observatoryUri.complete(match[1]);
+            _observatoryUri = match[1];
+          }
+        }, onDone: () {
+          if (!observatoryUri.isCompleted) {
+            observatoryUri.complete();
+          }
+        });
+    _forwardStream(_runProcess.stderr, 'run stderr');
+
+    _observatoryUri = await observatoryUri.future;
+  }
+
+  Future<void> _launchDevTools() async {
+    await exec(pubBin, <String>[
+      'global',
+      'activate',
+      'devtools',
+      '0.2.5',
+    ]);
+    _devToolsProcess = await startProcess(
+      pubBin,
+      <String>[
+        'global',
+        'run',
+        'devtools',
+        '--vm-uri', _observatoryUri,
+        '--profile-memory', _kJsonFileName,
+      ],
+    );
+    _forwardStream(_devToolsProcess.stdout, 'devtools stdout');
+    _forwardStream(_devToolsProcess.stderr, 'devtools stderr');
+  }
+
+  void _forwardStream(Stream<List<int>> stream, String label) {
+    stream
+        .transform<String>(utf8.decoder)
+        .transform<String>(const LineSplitter())
+        .listen((String line) {
+          print('$label: $line');
+        });
+  }
+
+  Device _device;
+  String _observatoryUri;
+  Process _runProcess;
+  Process _devToolsProcess;
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
 
   static const String _kJsonFileName = 'devtools_memory.json';
 }

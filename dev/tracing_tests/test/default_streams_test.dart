@@ -26,8 +26,13 @@ void main() {
     );
   });
 
+<<<<<<< HEAD
   tearDownAll(() async {
     await vmService.dispose();
+=======
+  tearDownAll(() {
+    vmService.dispose();
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
   });
 
   test('Image cache tracing', () async {

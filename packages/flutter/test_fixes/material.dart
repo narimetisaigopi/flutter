@@ -7,9 +7,12 @@ import 'package:flutter/material.dart';
 void main() {
   // Generic reference variables.
   BuildContext context;
+<<<<<<< HEAD
   RenderObjectWidget renderObjectWidget;
   RenderObject renderObject;
   Object object;
+=======
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
 
   // Changes made in https://github.com/flutter/flutter/pull/26259
   const Scaffold scaffold = Scaffold(resizeToAvoidBottomPadding: true);
@@ -169,6 +172,7 @@ void main() {
   // Changes made in https://github.com/flutter/flutter/pull/68905
   MaterialBasedCupertinoThemeData.resolveFrom(context, nullOk: true);
   MaterialBasedCupertinoThemeData.resolveFrom(context, nullOk: false);
+<<<<<<< HEAD
 
   // Changes made in https://github.com/flutter/flutter/pull/72043
   TextField(maxLengthEnforced: true);
@@ -394,4 +398,6 @@ void main() {
   themeData = ThemeData.raw(fixTextFieldOutlineLabel: true);
   themeData = themeData.copyWith(fixTextFieldOutlineLabel: true);
   themeData.fixTextFieldOutlineLabel; // Removing field reference not supported.
+=======
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
 }

@@ -115,10 +115,14 @@ class WebExpressionCompiler implements ExpressionCompiler {
   }
 
   @override
+<<<<<<< HEAD
   Future<void> initialize({String moduleFormat, bool soundNullSafety}) async {}
 
   @override
   Future<bool> updateDependencies(Map<String, ModuleInfo> modules) async => true;
+=======
+  Future<bool> updateDependencies(Map<String, String> modules) async => true;
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
 }
 
 /// A web server which handles serving JavaScript and assets.

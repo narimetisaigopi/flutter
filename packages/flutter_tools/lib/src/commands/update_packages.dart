@@ -26,6 +26,7 @@ const Map<String, String> _kManuallyPinnedDependencies = <String, String>{
   // Dart analyzer does not catch renamed or deleted files.
   // Therefore, we control the version of flutter_gallery_assets so that
   // existing tests do not fail when the package has a new version.
+<<<<<<< HEAD
   'flutter_gallery_assets': '^1.0.1',
   'flutter_template_images': '4.0.0', // Must always exactly match flutter_tools template.
   // DART TEAM OWNED NNBD DEPS
@@ -74,6 +75,44 @@ const Map<String, String> _kManuallyPinnedDependencies = <String, String>{
   'shelf': '1.1.4',
   // Latest version does not resolve on our CI.
   'video_player': '2.1.1',
+=======
+  'flutter_gallery_assets': '^0.2.0',
+  'mockito': '4.1.1',  // Prevent mockito from upgrading to the source gen version.
+  'vm_service_client': '0.2.6+2', // Final version before being marked deprecated.
+  'flutter_template_images': '1.0.1', // Must always exactly match flutter_tools template.
+  'shelf': '0.7.5',
+  // Pinned for 1.26.x release branch to allow updating stable null-safe
+  '_fe_analyzer_shared': '12.0.0',
+  'analyzer': '0.40.6',
+  'cli_util': '0.2.0',
+  'coverage': '0.14.2',
+  'devtools': '0.9.6+3',
+  'devtools_shared': '0.9.6+3',
+  'file_testing': '2.1.0',
+  'mime': '0.9.7',
+  'node_preamble': '1.4.12',
+  'pubspec_parse': '0.1.7',
+  'shelf_packages_handler': '2.0.0',
+  'shelf_static': '0.2.9+1',
+  'shelf_web_socket': '0.2.3',
+  'source_span': '1.8.0',
+  'sse': '3.6.0',
+  'vm_service': '5.5.0',
+  'watcher': '0.9.7+15',
+  'webkit_inspection_protocol': '0.7.4',
+  'yaml': '2.2.1',
+  // Flutter team owned nnbd deps
+  'platform': '3.0.0',
+  'file': '6.0.0',
+  'process': '4.0.0',
+  'process_runner': '4.0.0-nullsafety.5',
+  'path_provider': '1.6.14',
+  'video_player': '2.0.0-nullsafety.2',
+  'url_launcher': '6.0.0-nullsafety.1',
+  'connectivity': '3.0.0-nullsafety.1',
+  'device_info': '2.0.0-nullsafety.1',
+  'camera': '0.6.4+5',
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
 };
 
 class UpdatePackagesCommand extends FlutterCommand {
@@ -747,6 +786,23 @@ class PubspecYaml {
   /// This returns all regular dependencies and all dev dependencies.
   Iterable<PubspecDependency> get allDependencies sync* {
     for (final PubspecLine data in inputData) {
+      // Only for branch, to allow rolling nullsafe packages and work around not
+      // being able to pin transitive deps.
+      const List<String> transitiveDepsAllowlist = <String>[
+        '_fe_analyzer_shared',
+        'analyzer',
+        'cli_util',
+        'devtools',
+        'devtools_shared',
+        'node_preamble',
+        'shelf_packages_handler',
+        'source_span',
+        'sse',
+        'watcher',
+      ];
+      if (data is PubspecDependency && transitiveDepsAllowlist.contains(data.name)) {
+        yield data;
+      }
       if (data is PubspecDependency && data.kind != DependencyKind.overridden && !data.isTransitive) {
         yield data;
       }

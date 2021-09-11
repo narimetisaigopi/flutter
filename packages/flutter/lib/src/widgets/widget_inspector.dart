@@ -2993,6 +2993,11 @@ Iterable<DiagnosticsNode> _describeRelevantUserCode(
     // TODO(chunhtai): should print out all the widgets that are about to cross
     // package boundaries.
     if (debugIsLocalCreationLocation(target)) {
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
       DiagnosticsNode? devToolsDiagnostic;
 
       // TODO(kenz): once the inspector is better at dealing with broken trees,
@@ -3000,7 +3005,11 @@ Iterable<DiagnosticsNode> _describeRelevantUserCode(
       // errors. See https://github.com/flutter/flutter/issues/74918.
       if (isOverflowError()) {
         final String? devToolsInspectorUri =
+<<<<<<< HEAD
           WidgetInspectorService.instance._devToolsInspectorUriForElement(target);
+=======
+        WidgetInspectorService.instance._devToolsInspectorUriForElement(target);
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
         if (devToolsInspectorUri != null) {
           devToolsDiagnostic = DevToolsDeepLinkProperty(
             'To inspect this widget in Flutter DevTools, visit: $devToolsInspectorUri',

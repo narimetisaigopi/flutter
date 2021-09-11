@@ -966,7 +966,11 @@ class ArtifactUpdater {
         // cannot be deleted. For the cache, this is either the analyzer reading
         // the sky_engine package or a running flutter_tester device.
         const int kSharingViolation = 32;
+<<<<<<< HEAD
         if (_platform.isWindows && error.osError?.errorCode == kSharingViolation) {
+=======
+        if (_platform.isWindows && error.osError.errorCode == kSharingViolation) {
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
           throwToolExit(
             'Failed to delete ${destination.path} because the local file/directory is in use '
             'by another process. Try closing any running IDEs or editors and trying '

@@ -48,6 +48,7 @@ void main() {
     GestureBinding.instance!.handleEvent(up90, HitTestEntry(MockHitTestTarget()));
     GestureBinding.instance!.handleEvent(up91, HitTestEntry(MockHitTestTarget()));
   });
+<<<<<<< HEAD
 
   testWidgets('VerticalDragGestureRecognizer asserts when kind and supportedDevices are both set', (WidgetTester tester) async {
     expect(
@@ -78,6 +79,8 @@ void main() {
       ),
     );
   });
+=======
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
 }
 
 class MockHitTestTarget implements HitTestTarget {

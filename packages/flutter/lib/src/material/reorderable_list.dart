@@ -76,8 +76,11 @@ class ReorderableListView extends StatefulWidget {
     Key? key,
     required List<Widget> children,
     required this.onReorder,
+<<<<<<< HEAD
     this.itemExtent,
     this.prototypeItem,
+=======
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
     this.proxyDecorator,
     this.buildDefaultDragHandles = true,
     this.padding,
@@ -115,6 +118,7 @@ class ReorderableListView extends StatefulWidget {
   /// This constructor is appropriate for list views with a large number of
   /// children because the builder is called only for those children
   /// that are actually visible.
+<<<<<<< HEAD
   ///
   /// The `itemBuilder` callback will be called only with indices greater than
   /// or equal to zero and less than `itemCount`.
@@ -167,6 +171,22 @@ class ReorderableListView extends StatefulWidget {
   /// {@end-tool}
   /// See also:
   ///
+=======
+  ///
+  /// The `itemBuilder` callback will be called only with indices greater than
+  /// or equal to zero and less than `itemCount`.
+  ///
+  /// The `itemBuilder` should always return a non-null widget, and actually
+  /// create the widget instances when called. Avoid using a builder that
+  /// returns a previously-constructed widget; if the list view's children are
+  /// created in advance, or all at once when the [ReorderableListView] itself
+  /// is created, it is more efficient to use the [ReorderableListView]
+  /// constructor. Even more efficient, however, is to create the instances
+  /// on demand using this constructor's `itemBuilder` callback.
+  ///
+  /// See also:
+  ///
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
   ///   * [ReorderableListView], which allows you to build a reorderable
   ///     list with all the items passed into the constructor.
   const ReorderableListView.builder({
@@ -174,8 +194,11 @@ class ReorderableListView extends StatefulWidget {
     required this.itemBuilder,
     required this.itemCount,
     required this.onReorder,
+<<<<<<< HEAD
     this.itemExtent,
     this.prototypeItem,
+=======
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
     this.proxyDecorator,
     this.buildDefaultDragHandles = true,
     this.padding,
@@ -195,10 +218,13 @@ class ReorderableListView extends StatefulWidget {
   }) : assert(scrollDirection != null),
        assert(itemCount >= 0),
        assert(onReorder != null),
+<<<<<<< HEAD
        assert(
          itemExtent == null || prototypeItem == null,
          'You can only pass itemExtent or prototypeItem, not both',
        ),
+=======
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
        assert(buildDefaultDragHandles != null),
        super(key: key);
 
@@ -291,6 +317,8 @@ class ReorderableListView extends StatefulWidget {
   ///
   /// If null, no header will appear before the list.
   final Widget? header;
+<<<<<<< HEAD
+=======
 
   /// {@macro flutter.widgets.scroll_view.scrollDirection}
   final Axis scrollDirection;
@@ -334,12 +362,134 @@ class ReorderableListView extends StatefulWidget {
   ///
   /// Defaults to [Clip.hardEdge].
   final Clip clipBehavior;
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
+
+  /// {@macro flutter.widgets.scroll_view.scrollDirection}
+  final Axis scrollDirection;
+
+  /// {@macro flutter.widgets.scroll_view.reverse}
+  final bool reverse;
+
+<<<<<<< HEAD
+  /// {@macro flutter.widgets.scroll_view.controller}
+  final ScrollController? scrollController;
+=======
+  @override
+  void initState() {
+    super.initState();
+    _listOverlayEntry = OverlayEntry(
+      opaque: true,
+      builder: (BuildContext context) {
+        return _ReorderableListContent(
+          itemBuilder: widget.itemBuilder,
+          itemCount: widget.itemCount,
+          onReorder: widget.onReorder,
+          proxyDecorator: widget.proxyDecorator,
+          buildDefaultDragHandles: widget.buildDefaultDragHandles,
+          padding: widget.padding,
+          header: widget.header,
+          scrollDirection: widget.scrollDirection,
+          reverse: widget.reverse,
+          scrollController: widget.scrollController,
+          primary: widget.primary,
+          physics: widget.physics,
+          shrinkWrap: widget.shrinkWrap,
+          anchor: widget.anchor,
+          cacheExtent: widget.cacheExtent,
+          dragStartBehavior: widget.dragStartBehavior,
+          keyboardDismissBehavior: widget.keyboardDismissBehavior,
+          restorationId: widget.restorationId,
+          clipBehavior: widget.clipBehavior,
+        );
+      },
+    );
+  }
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
+
+  /// {@macro flutter.widgets.scroll_view.primary}
+
+  /// Defaults to true when [scrollDirection] is [Axis.vertical] and
+  /// [scrollController] is null.
+  final bool? primary;
+
+<<<<<<< HEAD
+  /// {@macro flutter.widgets.scroll_view.physics}
+  final ScrollPhysics? physics;
+
+  /// {@macro flutter.widgets.scroll_view.shrinkWrap}
+  final bool shrinkWrap;
+
+  /// {@macro flutter.widgets.scroll_view.anchor}
+  final double anchor;
+
+  /// {@macro flutter.rendering.RenderViewportBase.cacheExtent}
+  final double? cacheExtent;
+
+  /// {@macro flutter.widgets.scrollable.dragStartBehavior}
+  final DragStartBehavior dragStartBehavior;
+
+  /// {@macro flutter.widgets.scroll_view.keyboardDismissBehavior}
+  ///
+  /// The default is [ScrollViewKeyboardDismissBehavior.manual]
+  final ScrollViewKeyboardDismissBehavior keyboardDismissBehavior;
+
+  /// {@macro flutter.widgets.scrollable.restorationId}
+  final String? restorationId;
+
+  /// {@macro flutter.material.Material.clipBehavior}
+  ///
+  /// Defaults to [Clip.hardEdge].
+  final Clip clipBehavior;
 
   /// {@macro flutter.widgets.list_view.itemExtent}
   final double? itemExtent;
 
   /// {@macro flutter.widgets.list_view.prototypeItem}
   final Widget? prototypeItem;
+=======
+class _ReorderableListContent extends StatefulWidget {
+  const _ReorderableListContent({
+    required this.itemBuilder,
+    required this.itemCount,
+    required this.onReorder,
+    required this.proxyDecorator,
+    required this.buildDefaultDragHandles,
+    required this.padding,
+    required this.header,
+    required this.scrollDirection,
+    required this.reverse,
+    required this.scrollController,
+    required this.primary,
+    required this.physics,
+    required this.shrinkWrap,
+    required this.anchor,
+    required this.cacheExtent,
+    required this.dragStartBehavior,
+    required this.keyboardDismissBehavior,
+    required this.restorationId,
+    required this.clipBehavior,
+  });
+
+  final IndexedWidgetBuilder itemBuilder;
+  final int itemCount;
+  final ReorderCallback onReorder;
+  final ReorderItemProxyDecorator? proxyDecorator;
+  final bool buildDefaultDragHandles;
+  final EdgeInsets? padding;
+  final Widget? header;
+  final Axis scrollDirection;
+  final bool reverse;
+  final ScrollController? scrollController;
+  final bool? primary;
+  final ScrollPhysics? physics;
+  final bool shrinkWrap;
+  final double anchor;
+  final double? cacheExtent;
+  final DragStartBehavior dragStartBehavior;
+  final ScrollViewKeyboardDismissBehavior keyboardDismissBehavior;
+  final String? restorationId;
+  final Clip clipBehavior;
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
 
   @override
   State<ReorderableListView> createState() => _ReorderableListViewState();
@@ -405,6 +555,7 @@ class _ReorderableListViewState extends State<ReorderableListView> {
 
   Widget _itemBuilder(BuildContext context, int index) {
     final Widget item = widget.itemBuilder(context, index);
+<<<<<<< HEAD
     assert(() {
       if (item.key == null) {
         throw FlutterError(
@@ -413,6 +564,8 @@ class _ReorderableListViewState extends State<ReorderableListView> {
       }
       return true;
     }());
+=======
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
 
     // TODO(goderbauer): The semantics stuff should probably happen inside
     //   _ReorderableItem so the widget versions can have them as well.
@@ -540,6 +693,7 @@ class _ReorderableListViewState extends State<ReorderableListView> {
       }
     }
 
+<<<<<<< HEAD
     return CustomScrollView(
       scrollDirection: widget.scrollDirection,
       reverse: widget.reverse,
@@ -558,6 +712,34 @@ class _ReorderableListViewState extends State<ReorderableListView> {
           SliverPadding(
             padding: headerPadding,
             sliver: SliverToBoxAdapter(child: widget.header),
+=======
+    return Padding(
+      padding: outerPadding,
+      child: CustomScrollView(
+        scrollDirection: widget.scrollDirection,
+        reverse: widget.reverse,
+        controller: widget.scrollController,
+        primary: widget.primary,
+        physics: widget.physics,
+        shrinkWrap: widget.shrinkWrap,
+        anchor: widget.anchor,
+        cacheExtent: widget.cacheExtent,
+        dragStartBehavior: widget.dragStartBehavior,
+        keyboardDismissBehavior: widget.keyboardDismissBehavior,
+        restorationId: widget.restorationId,
+        clipBehavior: widget.clipBehavior,
+        slivers: <Widget>[
+          if (widget.header != null)
+            SliverToBoxAdapter(child: widget.header!),
+          SliverPadding(
+            padding: listPadding,
+            sliver: SliverReorderableList(
+              itemBuilder: _itemBuilder,
+              itemCount: widget.itemCount,
+              onReorder: widget.onReorder,
+              proxyDecorator: widget.proxyDecorator ?? _proxyDecorator,
+            ),
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
           ),
         SliverPadding(
           padding: listPadding,

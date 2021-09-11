@@ -1109,8 +1109,11 @@ class _TestWidgetInspectorService extends TestWidgetInspectorService {
       activeDevToolsServerAddress = 'http://127.0.0.1:9100';
       connectedVmServiceUri = 'http://127.0.0.1:55269/798ay5al_FM=/';
 
+<<<<<<< HEAD
       setupDefaultPubRootDirectory(service);
 
+=======
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
       await tester.pumpWidget(
         Directionality(
           textDirection: TextDirection.ltr,
@@ -1130,7 +1133,11 @@ class _TestWidgetInspectorService extends TestWidgetInspectorService {
       builder.add(DiagnosticsDebugCreator(DebugCreator(elementA)));
       builder.add(StringProperty('dummy2', 'value'));
 
+<<<<<<< HEAD
       final List<DiagnosticsNode> nodes = List<DiagnosticsNode>.from(debugTransformDebugCreator(builder.properties));
+=======
+      final List<DiagnosticsNode> nodes = List<DiagnosticsNode>.from(transformDebugCreator(builder.properties));
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
       expect(nodes.length, 6);
       expect(nodes[0].runtimeType, ErrorSummary);
       expect(nodes[1].runtimeType, DiagnosticsBlock);
@@ -1143,7 +1150,10 @@ class _TestWidgetInspectorService extends TestWidgetInspectorService {
     testWidgets('test transformDebugCreator will not add DevToolsDeepLinkProperty for non-overflow errors', (WidgetTester tester) async {
       activeDevToolsServerAddress = 'http://127.0.0.1:9100';
       connectedVmServiceUri = 'http://127.0.0.1:55269/798ay5al_FM=/';
+<<<<<<< HEAD
       setupDefaultPubRootDirectory(service);
+=======
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
 
       await tester.pumpWidget(
         Directionality(
@@ -1164,7 +1174,11 @@ class _TestWidgetInspectorService extends TestWidgetInspectorService {
       builder.add(DiagnosticsDebugCreator(DebugCreator(elementA)));
       builder.add(StringProperty('dummy2', 'value'));
 
+<<<<<<< HEAD
       final List<DiagnosticsNode> nodes = List<DiagnosticsNode>.from(debugTransformDebugCreator(builder.properties));
+=======
+      final List<DiagnosticsNode> nodes = List<DiagnosticsNode>.from(transformDebugCreator(builder.properties));
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
       expect(nodes.length, 4);
       expect(nodes[0].runtimeType, ErrorSummary);
       expect(nodes[1].runtimeType, DiagnosticsBlock);
@@ -1175,7 +1189,10 @@ class _TestWidgetInspectorService extends TestWidgetInspectorService {
     testWidgets('test transformDebugCreator will not add DevToolsDeepLinkProperty if devtoolsServerAddress is unavailable', (WidgetTester tester) async {
       activeDevToolsServerAddress = null;
       connectedVmServiceUri = 'http://127.0.0.1:55269/798ay5al_FM=/';
+<<<<<<< HEAD
       setupDefaultPubRootDirectory(service);
+=======
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
 
       await tester.pumpWidget(
         Directionality(
@@ -1196,7 +1213,11 @@ class _TestWidgetInspectorService extends TestWidgetInspectorService {
       builder.add(DiagnosticsDebugCreator(DebugCreator(elementA)));
       builder.add(StringProperty('dummy2', 'value'));
 
+<<<<<<< HEAD
       final List<DiagnosticsNode> nodes = List<DiagnosticsNode>.from(debugTransformDebugCreator(builder.properties));
+=======
+      final List<DiagnosticsNode> nodes = List<DiagnosticsNode>.from(transformDebugCreator(builder.properties));
+>>>>>>> 4d7946a68d26794349189cf21b3f68cc6fe61dcb
       expect(nodes.length, 4);
       expect(nodes[0].runtimeType, ErrorSummary);
       expect(nodes[1].runtimeType, DiagnosticsBlock);
